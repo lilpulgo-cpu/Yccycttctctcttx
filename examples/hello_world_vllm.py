@@ -2,12 +2,23 @@ import asyncio
 import json
 import pandas as pd
 from llm_swarm import LLMSwarm, LLMSwarmConfig
-from huggingface_hub import AsyncInferenceClient
+from huggingface_hub import AsyncInferenceClient, login
 from transformers import AutoTokenizer
 from tqdm.asyncio import tqdm_asyncio
+from dotenv import load_dotenv
+import os
 
+# Cargar las variables de entorno desde el archivo .env
+load_dotenv()
+
+# Obtener el token de Hugging Face desde la variable de entorno
+hf_token = os.getenv("HUGGINGFACE_TOKEN")
+
+# Iniciar sesión en Hugging Face utilizando el token cargado
+login(hf_token)
 
 tasks = ["What is the capital of France?", "Who wrote Romeo and Juliet?", "What is the formula for water?"]
+
 with LLMSwarm(
     LLMSwarmConfig(
         instances=2,
