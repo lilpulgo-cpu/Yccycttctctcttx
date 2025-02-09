@@ -8,6 +8,8 @@ ARG HUGGINGFACE_TOKEN
 ENV HUGGINGFACE_TOKEN=${HUGGINGFACE_TOKEN}
 
 WORKDIR /app
+sudo apt-get update
+sudo apt-get install slurm-wlm
 
 RUN apt update && apt upgrade -y && apt install git -y
 RUN pip install llm-swarm python-dotenv
