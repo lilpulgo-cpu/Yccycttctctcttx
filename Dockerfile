@@ -18,4 +18,4 @@ COPY . .
 RUN mkdir /.cache
 RUN chmod -R 777 /.cache
 
-CMD ["python", "examples/hello_world-vllm.py"]
+CMD ["python", "examples/hello_world_vllm.py"]
