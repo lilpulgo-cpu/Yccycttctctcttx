@@ -10,7 +10,7 @@ ENV HUGGINGFACE_TOKEN=${HUGGINGFACE_TOKEN}
 WORKDIR /app
 
 RUN apt update && apt upgrade -y && apt install git -y
-RUN pip install llm-swarm python-dotenv sbatch
+RUN pip install llm-swarm python-dotenv
 #RUN git clone https://github.com/huggingface/llm-swarm.git && mv llm-swarm/* /app/
 
 COPY . .
